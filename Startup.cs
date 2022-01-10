@@ -98,7 +98,7 @@ namespace CatApp
                 }
             });
 
-            /*
+
               if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -139,10 +139,6 @@ namespace CatApp
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
-             * 
-             * 
-             * */
-
         }
     }
 }
