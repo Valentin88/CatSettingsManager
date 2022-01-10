@@ -1,0 +1,121 @@
+<div class="cat-edit">
+  <h1>{{title}}</h1>
+
+  <p *ngIf="this.id && !cat"><em>Загрузка...</em></p>
+  <div class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Имя кота:</label>
+      <br />
+      <input type="text" id="name"
+             formControlName="name" required
+             placeholder="Имя кота..."
+             class="form-control" />
+      <div *ngIf="form.get('name').invalid &&
+                 (form.get('name').dirty || form.get('name').touched)"
+           class="invalid-feedback">
+        <div *ngIf="form.get('name').errors?.required">
+          Требуется указать имя кота.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="breed">Порода:</label>
+      <br />
+      <input type="text" id="breed"
+             formControlName="breed" required
+             placeholder="Порода..."
+             class="form-control" />
+      <div *ngIf="form.get('breed').invalid &&
+                 (form.get('breed').dirty || form.get('breed').touched)"
+           class="invalid-feedback">
+        <div *ngIf="form.get('breed').errors?.required">
+          Требуется указать породу.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tailLength">Длина хвоста:</label>
+      <br />
+      <input type="text" id="tailLength"
+             formControlName="tailLength" required
+             placeholder="Длина хвоста..."
+             class="form-control" />
+      <div *ngIf="form.get('tailLength').invalid &&
+                 (form.get('tailLength').dirty || form.get('tailLength').touched)"
+           class="invalid-feedback">
+        <div *ngIf="form.get('tailLength').errors?.required">
+          Требуется укзать длину хвоста.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="spotsCount">Количество пятен:</label>
+      <br />
+      <input type="text" id="spotsCount"
+             formControlName="spotsCount" required
+             placeholder="Количество пятен..."
+             class="form-control" />
+      <div *ngIf="form.get('spotsCount').invalid &&
+                 (form.get('spotsCount').dirty || form.get('spotsCount').touched)"
+           class="invalid-feedback">
+        <div *ngIf="form.get('spotsCount').errors?.required">
+          Требуется укзать количество пятен.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="hairColor">Цвет волос:</label>
+      <br />
+      <input type="text" id="hairColor"
+             formControlName="hairColor" required
+             placeholder="Цвет волос..."
+             class="form-control" />
+      <div *ngIf="form.get('hairColor').invalid &&
+                 (form.get('hairColor').dirty || form.get('hairColor').touched)"
+           class="invalid-feedback">
+        <div *ngIf="form.get('hairColor').errors?.required">
+          Требуется указать цвет волос.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="eyesColor">Цвет глаз:</label>
+      <br />
+      <input type="text" id="eyesColor"
+             formControlName="eyesColor" required
+             placeholder="Цвет глаз..."
+             class="form-control" />
+      <div *ngIf="form.get('eyesColor').invalid &&
+                 (form.get('eyesColor').dirty || form.get('eyesColor').touched)"
+           class="invalid-feedback">
+        <div *ngIf="form.get('eyesColor').errors?.required">
+          Требуется укзать цвет глаз.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group commands">
+      <button *ngIf="id" type="submit"
+              (click)="onSubmit()"
+              [disabled]="form.invalid"
+              class="btn btn-success">
+        Сохранить
+      </button>
+      <button *ngIf="!id" type="submit"
+              (click)="onSubmit()"
+              [disabled]="form.invalid"
+              class="btn btn-success">
+        Создать
+      </button>
+      <button type="button"
+              [routerLink]="['']"
+              class="btn">
+        Отмена
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<h1>Настройки кота</h1>
+
+<p>Здесь перечислены настройки:</p>
+
+<p *ngIf="!result"><em>Настройки пока не заданы</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="result">
+  <tbody>
+    <tr>
+      <th>Имя</th>
+      <td>{{ result.name }}</td>
+    </tr>   
+    <tr>
+      <th>Длина хвоста</th>
+      <td>{{ result.tailLength }}</td>
+    </tr>
+    <tr>
+      <th>Количество пятен</th>
+      <td>{{ result.spotsCount }}</td>
+    </tr>
+    <tr>
+      <th>Цвет волос</th>
+      <td class="color {{ result.hairColor}}">{{ result.hairColor }}</td>
+    </tr>
+    <tr>
+      <th>Цвет глаз</th>
+      <td class="color {{ result.eyesColor}}">{{ result.eyesColor }}</td>
+    </tr>
+    <tr>
+      <th>Порода</th>
+      <td>{{ result.breed }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="form-group commands">
+  <button *ngIf="result" type="button"
+          [routerLink]="['/edit', result.id]"
+          class="btn btn-success">
+    Редактировать
+  </button>
+  <button *ngIf="!result" type="button"
+          [routerLink]="['/edit']"
+          class="btn btn-success">
+    Создать
+  </button>
+
+</div>
+
+
